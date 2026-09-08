@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Utility Wise | BASE Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Utility Wise by BASE Automation is a utility monitoring and analytics solution for Energy, Water and Temperature, built on the Ignition platform."
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            page: "#f5f3ef",
+            ink: "#111111",
+            panel: "#ffffff",
+            panelSoft: "#eeece5",
+            line: "#e3dfd5",
+            accent: "#cc342c",
+            accentDim: "#c00000",
+            highlight: "#e97225",
+            muted: "#6b7280",
+          },
+          fontFamily: {
+            mono: ["SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-page font-sans text-ink leading-relaxed">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-20 w-full border-b-2 border-line bg-panel">
+    <div
+      class="mx-auto flex max-w-[1080px] items-center justify-between px-5 py-4 max-[780px]:px-[0.7rem]"
+    >
+      <div class="flex items-center gap-4">
+        <img src="assets/base-logo.png" alt="BASE Automation" class="h-16 w-auto" />
+        <div class="hidden h-9 w-px bg-line sm:block"></div>
+        <div class="flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" class="h-6 w-6 flex-shrink-0" title="Energy · Water · Temperature">
+            <rect x="2" y="10" width="5" height="10" rx="1.3" fill="#cc342c" />
+            <rect x="9.5" y="4" width="5" height="16" rx="1.3" fill="#150e42" />
+            <rect x="17" y="7" width="5" height="13" rx="1.3" fill="#e97225" />
+          </svg>
+          <div class="text-xl font-bold tracking-tight">
+            <span class="text-ink">Utility</span><span class="text-accent">Wise</span>
+          </div>
+        </div>
+      </div>
+      <nav class="flex gap-[1.5rem] text-[0.9rem] font-semibold max-[780px]:hidden">
+        <a href="#features" class="border-b border-transparent pb-[0.2rem] text-muted transition-colors hover:border-accent hover:text-ink">Features</a>
+        <a href="#dashboards" class="border-b border-transparent pb-[0.2rem] text-muted transition-colors hover:border-accent hover:text-ink">Dashboards</a>
+        <a href="#alerts" class="border-b border-transparent pb-[0.2rem] text-muted transition-colors hover:border-accent hover:text-ink">Alerts</a>
+        <a href="#tech" class="border-b border-transparent pb-[0.2rem] text-muted transition-colors hover:border-accent hover:text-ink">Technology</a>
+        <a href="#contact" class="border-b border-transparent pb-[0.2rem] text-muted transition-colors hover:border-accent hover:text-ink">Contact</a>
+      </nav>
+      <button
+        class="cursor-pointer rounded-md border border-accentDim bg-accent px-[1.1rem] py-[0.6rem] text-[0.85rem] font-bold text-white"
+        onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+      >
+        Request Demo
+      </button>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-[1080px] px-5 pt-8 pb-12">
+    <!-- HERO -->
+    <section class="mb-12 grid grid-cols-1 items-center gap-[2.2rem] md:grid-cols-[1.4fr_1.1fr]" id="top">
+      <div>
+        <div class="mb-[0.6rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+          Real-time Utility Monitoring
+        </div>
+        <h1 class="mb-[0.7rem] text-[clamp(2.1rem,3.4vw,2.8rem)] font-bold leading-tight tracking-[-0.02em]">
+          Connect, analyse and act on your
+          <span class="text-accent">Energy, Water &amp; Temperature</span> data.
+        </h1>
+        <p class="mb-[1.2rem] max-w-[34rem] text-[0.96rem] text-muted">
+          Utility Wise is a utility monitoring and analytics
+          application developed by BASE Automation on the
+          Ignition platform. It connects directly to your
+          energy meters, flow meters and temperature sensors, and delivers
+          dashboards for energy, water and temperature in one place.
+        </p>
+
+        <div class="mb-[1.7rem] flex flex-wrap gap-[0.6rem] text-[0.82rem]">
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft px-3 py-[0.4rem]">
+            <strong class="font-mono text-ink">100+ </strong> Energy meters connected
+          </div>
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft px-3 py-[0.4rem]">
+            <strong class="font-mono text-ink">70+ </strong> Flow meters connected
+          </div>
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft px-3 py-[0.4rem]">
+            <strong class="font-mono text-ink">25 </strong> Temperature sensors
+          </div>
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft px-3 py-[0.4rem]">
+            Configurable analytical dashboards &amp; email alerts
+          </div>
+        </div>
+
+        <div class="mb-2 flex flex-wrap items-center gap-[0.8rem]">
+          <button
+            class="cursor-pointer rounded-md border border-accentDim bg-accent px-[1.4rem] py-[0.7rem] text-[0.9rem] font-bold text-white"
+            onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})"
+          >
+            Explore Features
+          </button>
+          <button
+            class="cursor-pointer rounded-md border border-line px-[1.2rem] py-[0.7rem] text-[0.88rem] text-ink hover:border-accentDim"
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+          >
+            Talk to our team
+          </button>
+        </div>
+
+        <p class="text-[0.78rem] text-muted">
+          From EUR / CUR graphs to WUR, steam ratio and temperature alerts,
+          Utility Wise turns raw utility data into decisions.
+        </p>
+      </div>
+
+      <!-- DASHBOARD MOCK -->
+      <div class="rounded-[10px] border border-line border-t-2 border-t-accentDim bg-panel p-[1.1rem] text-ink">
+        <div class="mb-[0.7rem] flex items-center justify-between text-[0.8rem]">
+          <div class="flex items-center gap-[0.4rem] font-semibold">
+            Utility Wise – Plant Overview
+            <span class="rounded border border-green-600/60 bg-green-50 px-[0.55rem] py-[0.15rem] font-mono text-[0.68rem] text-green-700">Live · Connected</span>
+          </div>
+          <span class="text-[0.72rem] text-gray-500">Ignition Runtime</span>
+        </div>
+
+        <div class="mb-[0.8rem] flex flex-wrap gap-[0.4rem]">
+          <div class="rounded border border-line bg-panelSoft px-[0.55rem] py-[0.25rem] text-[0.7rem] text-muted"><span class="font-medium text-ink">Energy</span> · EUR / CUR / GRID / SOLAR / DG</div>
+          <div class="rounded border border-line bg-panelSoft px-[0.55rem] py-[0.25rem] text-[0.7rem] text-muted"><span class="font-medium text-ink">Water</span> · WUR &amp; steam ratio</div>
+          <div class="rounded border border-line bg-panelSoft px-[0.55rem] py-[0.25rem] text-[0.7rem] text-muted"><span class="font-medium text-ink">Temperature</span> · Hi / Lo limits &amp; alerts</div>
+        </div>
+
+        <div class="mb-[0.7rem] grid grid-cols-3 gap-[0.6rem] max-[520px]:grid-cols-2">
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft p-[0.5rem_0.55rem] text-[0.8rem]">
+            <div class="text-[0.7rem] text-muted">Energy (EUR)</div>
+            <div class="font-mono text-[0.92rem] font-semibold text-ink">4.8 kWh / Unit</div>
+            <div class="text-[0.7rem] text-accent">Top 5 consumers highlighted</div>
+          </div>
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft p-[0.5rem_0.55rem] text-[0.8rem]">
+            <div class="text-[0.7rem] text-muted">Water · WUR</div>
+            <div class="font-mono text-[0.92rem] font-semibold text-ink">1.6 m³ / Unit</div>
+            <div class="text-[0.7rem] text-accent">Steam ratio in range</div>
+          </div>
+          <div class="rounded-md border border-line border-l-2 border-l-accentDim bg-panelSoft p-[0.5rem_0.55rem] text-[0.8rem]">
+            <div class="text-[0.7rem] text-muted">Temperature</div>
+            <div class="font-mono text-[0.92rem] font-semibold text-ink">76.2 °C</div>
+            <div class="text-[0.7rem] text-accent">3 tags near high limit</div>
+          </div>
+        </div>
+
+        <div class="mt-[0.4rem] flex items-center gap-2 rounded-md border border-line border-l-[3px] border-l-accentDim bg-panelSoft px-[0.6rem] py-[0.5rem] text-[0.72rem] text-accent">
+          <div class="h-[7px] w-[7px] flex-shrink-0 rounded-sm bg-accentDim"></div>
+          <div>
+            1 critical temperature alarm &middot; 2 energy spikes detected.
+            <strong class="text-accent">Email alerts sent to configured users.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="mb-12">
+      <div class="mb-[0.3rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+        Key Features
+      </div>
+      <h2 class="mb-1 text-[1.4rem] font-semibold">What Utility Wise does for your plant</h2>
+      <p class="mb-[1.2rem] max-w-[34rem] text-[0.88rem] text-muted">
+        A single application to monitor and analyse energy, water and
+        temperature – with real-time dashboards, alarms and email notifications.
+      </p>
+
+      <div class="grid grid-cols-3 gap-4 max-[900px]:grid-cols-2 max-[640px]:grid-cols-1">
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Connectivity</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Direct connection from meters &amp; sensors</h3>
+          <p class="mb-2 text-gray-600">
+            Connects directly from the field without manual data entry.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> 100+ energy meters</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> 70+ flow meters</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> 25 temperature sensors</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Centralized, consistent data model</li>
+          </ul>
+        </article>
+
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Energy Analytics</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Energy dashboard with EUR / CUR</h3>
+          <p class="mb-2 text-gray-600">
+            Graphs and KPIs for all major energy sources in your plant.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> EUR and CUR based graphs</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Breakdown by GRID, SOLAR, DG, etc.</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Top 5 energy consumption across plant</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Helps identify abnormal usage quickly</li>
+          </ul>
+        </article>
+
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Water Analytics</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Water &amp; steam performance (WUR)</h3>
+          <p class="mb-2 text-gray-600">
+            Clear visualization of water consumption and steam efficiency.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Water Utilization Ratio (WUR)</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Steam ratio monitoring</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Trend graphs over time</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Compare lines, areas or shifts</li>
+          </ul>
+        </article>
+
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Temperature</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Configurable high &amp; low limits</h3>
+          <p class="mb-2 text-gray-600">
+            Temperature sensors are configured with limits so you know
+            immediately when a parameter is out of range.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> High and low limits per sensor</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Live indication on dashboards</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Alerts pushed based on breaches</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Supports critical equipment protection</li>
+          </ul>
+        </article>
+
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Alerts &amp; Email</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Automatic alerts and email notifications</h3>
+          <p class="mb-2 text-gray-600">
+            When something goes wrong, the right people are informed
+            automatically.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Alert generation based on conditions</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Email alerts configured for events</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Supports multiple recipients/groups</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Reduces response time for issues</li>
+          </ul>
+        </article>
+
+        <article class="rounded-[10px] border border-line border-t-2 border-t-transparent bg-panel p-4 text-[0.86rem] text-ink transition-colors hover:border-t-accentDim">
+          <div class="mb-[0.3rem] font-mono text-[0.72rem] font-semibold text-accent">Ignition Platform</div>
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold">Developed completely on Ignition</h3>
+          <p class="mb-2 text-gray-600">
+            Industrial-grade platform used worldwide for SCADA and IIoT.
+          </p>
+          <ul class="text-[0.8rem]">
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Robust, scalable architecture</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Web-based visualizations</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Easy expansion to more tags and plants</li>
+            <li class="mb-[0.2rem] flex items-baseline gap-[0.35rem]"><span class="mt-1 h-[5px] w-[5px] flex-shrink-0 rounded-[1px] bg-accentDim"></span> Integrates with your existing systems</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- DASHBOARDS -->
+    <section id="dashboards" class="mb-12">
+      <div class="mb-[0.3rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+        Dashboards
+      </div>
+      <h2 class="mb-1 text-[1.4rem] font-semibold">Energy, water and temperature in a single view</h2>
+      <p class="mb-[1.2rem] max-w-[34rem] text-[0.88rem] text-muted">
+        Utility Wise provides intuitive dashboards for different user groups –
+        plant operations, maintenance and utility managers – with drill-down
+        to individual meters and sensors.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_1.1fr]">
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Energy Dashboard</h3>
+          <p>
+            Visualise all your energy sources with EUR/CUR analytics and plant
+            level summaries.
+          </p>
+          <table class="mt-[0.4rem] mb-[0.6rem] w-full border-collapse text-[0.78rem]">
+            <thead>
+              <tr>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Source</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Load</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Trend</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">GRID</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">420 kW</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">Stable</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-green-600/70 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-green-700">Normal</span></td>
+              </tr>
+              <tr>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">SOLAR</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">160 kW</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">Rising</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-green-600/70 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-green-700">Utilized</span></td>
+              </tr>
+              <tr>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">DG</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">65 kW</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">Occasional</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-highlight/80 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-highlight">Check runtime</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• Top 5 energy consumption across the plant.</li>
+            <li class="mb-1">• Compare shifts, days or production campaigns.</li>
+            <li class="mb-1">• Identify abnormal patterns in specific areas.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Water &amp; Temperature Dashboard</h3>
+          <p>
+            Dedicated views for WUR, steam ratio and temperature zones help you
+            maintain process stability.
+          </p>
+          <table class="mt-[0.4rem] mb-[0.6rem] w-full border-collapse text-[0.78rem]">
+            <thead>
+              <tr>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Parameter</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Value</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Limit / Target</th>
+                <th class="border-b border-line px-[0.35rem] py-[0.4rem] text-left font-mono text-[0.68rem] uppercase tracking-[0.06em] text-gray-500">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">WUR</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">1.6 m³ / Unit</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">≤ 1.8</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-green-600/70 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-green-700">Within range</span></td>
+              </tr>
+              <tr>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">Steam ratio</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">3.2 kg/kg</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left">3.0 – 3.5</td>
+                <td class="border-b border-dashed border-line px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-green-600/70 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-green-700">Optimal</span></td>
+              </tr>
+              <tr>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">Zone T-07</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">96.5 °C</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left">Max 95 °C</td>
+                <td class="px-[0.35rem] py-[0.4rem] text-left"><span class="inline-block rounded border border-accentDim/85 px-[0.4rem] py-[0.1rem] font-mono text-[0.68rem] text-accent">High alert</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• See which zones are near high or low limits.</li>
+            <li class="mb-1">• Trend analysis for steam and water usage.</li>
+            <li class="mb-1">• Link alerts to email notifications for quicker action.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERTS -->
+    <section id="alerts" class="mb-12">
+      <div class="mb-[0.3rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+        Alerts &amp; Email
+      </div>
+      <h2 class="mb-1 text-[1.4rem] font-semibold">High and low limits with smart notifications</h2>
+      <p class="mb-[1.2rem] max-w-[34rem] text-[0.88rem] text-muted">
+        Temperature sensors and utility KPIs have configurable limits. When a
+        parameter goes outside the allowed range, Utility Wise triggers alerts
+        and email notifications to the configured team members.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_1.1fr]">
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Alert configuration</h3>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• High and low limits configured per tag or sensor group.</li>
+            <li class="mb-1">• Conditions based alerts (value, duration, rate of change).</li>
+            <li class="mb-1">• Clear separation between warning and critical alerts.</li>
+            <li class="mb-1">• Alarm acknowledgement and history for audit and analysis.</li>
+          </ul>
+        </div>
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Email alerts</h3>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• Email alerts sent when configured conditions are met.</li>
+            <li class="mb-1">• Includes parameter name, current value, limit and timestamp.</li>
+            <li class="mb-1">• Can be addressed to operations, maintenance or utility teams.</li>
+            <li class="mb-1">• Helps reduce manual monitoring and response time.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section id="tech" class="mb-12">
+      <div class="mb-[0.3rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+        Technology
+      </div>
+      <h2 class="mb-1 text-[1.4rem] font-semibold">Developed on the Ignition platform</h2>
+      <p class="mb-[1.2rem] max-w-[34rem] text-[0.88rem] text-muted">
+        Utility Wise is fully developed in Ignition, leveraging industrial
+        standards for reliability, scalability and integration.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_1.1fr]">
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Architecture</h3>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• Central Ignition gateway handling all meter and sensor data.</li>
+            <li class="mb-1">• Web-based dashboards accessible over the plant network.</li>
+            <li class="mb-1">• Role-based access for operators, engineers and managers.</li>
+            <li class="mb-1">• OPC / protocol-based connectivity to field devices.</li>
+          </ul>
+        </div>
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Future ready</h3>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• Easily add more meters, tags or plants.</li>
+            <li class="mb-1">• Extend analytics to other utilities or processes.</li>
+            <li class="mb-1">• Integrate with reporting tools or enterprise systems.</li>
+            <li class="mb-1">• Foundation for advanced analytics and optimisation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mb-12">
+      <div class="mb-[0.3rem] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.05em] text-muted">
+        Contact
+      </div>
+      <h2 class="mb-1 text-[1.4rem] font-semibold">Interested in Utility Wise?</h2>
+      <p class="mb-[1.2rem] max-w-[34rem] text-[0.88rem] text-muted">
+        Share your details and BASE Automation can arrange a walkthrough of the
+        application and discuss how it can be deployed for your plant.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.2fr_1fr]">
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <form class="flex flex-col gap-[0.7rem]" id="enquiry-form">
+            <div class="flex flex-col gap-1">
+              <label for="name" class="text-[0.8rem] text-gray-600 after:ml-0.5 after:text-accent after:content-['*']">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+                class="rounded-md border border-line bg-panelSoft px-[0.7rem] py-[0.55rem] text-[0.85rem] text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent invalid:not-placeholder-shown:border-accentDim"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="email" class="text-[0.8rem] text-gray-600 after:ml-0.5 after:text-accent after:content-['*']">Work Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@company.com"
+                required
+                class="rounded-md border border-line bg-panelSoft px-[0.7rem] py-[0.55rem] text-[0.85rem] text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent invalid:not-placeholder-shown:border-accentDim"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="company" class="text-[0.8rem] text-gray-600 after:ml-0.5 after:text-accent after:content-['*']">Company / Plant</label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder="Company / Plant name"
+                required
+                class="rounded-md border border-line bg-panelSoft px-[0.7rem] py-[0.55rem] text-[0.85rem] text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent invalid:not-placeholder-shown:border-accentDim"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="message" class="text-[0.8rem] text-gray-600 after:ml-0.5 after:text-accent after:content-['*']">Brief requirement</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us about your utilities setup and what you want to monitor."
+                required
+                class="min-h-[110px] resize-y rounded-md border border-line bg-panelSoft px-[0.7rem] py-[0.55rem] text-[0.85rem] text-ink outline-none focus:border-accent focus:ring-1 focus:ring-accent invalid:not-placeholder-shown:border-accentDim"
+              ></textarea>
+            </div>
+            <!-- Honeypot field, hidden from real users; bots tend to fill it in -->
+            <input
+              id="website"
+              name="website"
+              type="text"
+              autocomplete="off"
+              tabindex="-1"
+              class="absolute left-[-9999px] h-px w-px opacity-0"
+            />
+            <button
+              type="submit"
+              id="enquiry-submit"
+              class="cursor-pointer rounded-md border border-accentDim bg-accent px-[1.4rem] py-[0.7rem] text-[0.9rem] font-bold text-white disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              Submit enquiry
+            </button>
+            <div id="enquiry-status" class="mt-[0.4rem] hidden items-center gap-2 rounded-md border px-3 py-2 text-[0.82rem]" role="status"></div>
+          </form>
+        </div>
+
+        <div class="rounded-[10px] border border-line bg-panel p-4 text-[0.84rem] text-gray-600">
+          <h3 class="mb-[0.3rem] text-[0.95rem] font-semibold text-ink">Implementation by BASE Automation</h3>
+          <ul class="mt-[0.4rem]">
+            <li class="mb-1">• Site survey and study of existing meters and sensors.</li>
+            <li class="mb-1">• Configuration of tags, dashboards and alerts in Utility Wise.</li>
+            <li class="mb-1">• User training for operations and maintenance teams.</li>
+            <li class="mb-1">• Support and enhancements as your plant expands.</li>
+          </ul>
+          <p class="mt-[0.6rem] text-[0.78rem] text-muted">
+            Replace this text with your official phone number, email ID and
+            office address to make this page customer-ready.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 flex flex-wrap justify-between gap-[0.8rem] border-t border-line pt-[1.3rem] text-[0.76rem] text-muted">
+      <span>© <script>document.write(new Date().getFullYear());</script> BASE Automation. All rights reserved.</span>
+      <span>Utility Wise · Energy, water and temperature analytics on Ignition.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scroll for menu links
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var id = this.getAttribute("href").substring(1);
+        var el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Enquiry form -> FastAPI backend
+    var API_BASE = "http://127.0.0.1:8000";
+
+    var enquiryForm = document.getElementById("enquiry-form");
+    var enquiryStatus = document.getElementById("enquiry-status");
+    var enquirySubmit = document.getElementById("enquiry-submit");
+
+    var STATUS_STYLES = {
+      info: {
+        classes: "border-line bg-panelSoft text-gray-600",
+        icon: "",
+      },
+      success: {
+        classes: "border-green-300 bg-green-50 text-green-800",
+        icon:
+          '<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 flex-shrink-0"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0l-3.5-3.5a1 1 0 1 1 1.4-1.4l2.8 2.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>',
+      },
+      error: {
+        classes: "border-accentDim/40 bg-red-50 text-accentDim",
+        icon:
+          '<svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 flex-shrink-0"><path fill-rule="evenodd" d="M18 10A8 8 0 1 1 2 10a8 8 0 0 1 16 0Zm-7-4a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0V6Zm-1 8a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2Z" clip-rule="evenodd"/></svg>',
+      },
+    };
+
+    function setStatus(type, message) {
+      var style = STATUS_STYLES[type];
+      enquiryStatus.className =
+        "mt-[0.4rem] flex items-center gap-2 rounded-md border px-3 py-2 text-[0.82rem] " + style.classes;
+      enquiryStatus.innerHTML = style.icon + "<span>" + message + "</span>";
+    }
+
+    enquiryForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var payload = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        company: document.getElementById("company").value.trim(),
+        message: document.getElementById("message").value.trim(),
+        website: document.getElementById("website").value,
+      };
+
+      if (!payload.name || !payload.email || !payload.company || !payload.message) {
+        setStatus("error", "Please fill in all fields.");
+        return;
+      }
+
+      enquirySubmit.disabled = true;
+      setStatus("info", "Submitting...");
+
+      fetch(API_BASE + "/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          if (!res.ok) {
+            return res.json().then(function (data) {
+              throw new Error((data && data.detail) || "Submission failed");
+            });
+          }
+          return res.json();
+        })
+        .then(function () {
+          setStatus(
+            "success",
+            "Thanks! Your enquiry has been received - our team will get back to you shortly."
+          );
+          enquiryForm.reset();
+        })
+        .catch(function (err) {
+          setStatus("error", err.message || "Something went wrong. Please try again.");
+        })
+        .finally(function () {
+          enquirySubmit.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>
