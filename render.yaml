@@ -33,6 +33,8 @@ services:
         sync: false
       - key: GMAIL_NOTIFY_TO
         value: "hariharan.b@batpl.com"
+      - key: GMAIL_NOTIFY_NAME
+        value: "Hariharan"
 
   - type: web
     name: utility-wise-frontend
