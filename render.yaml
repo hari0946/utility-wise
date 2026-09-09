@@ -32,9 +32,9 @@ services:
       - key: GMAIL_REFRESH_TOKEN
         sync: false
       - key: GMAIL_NOTIFY_TO
-        value: "hariharan.b@batpl.com"
+        value: "rahul.b@batpl.com"
       - key: GMAIL_NOTIFY_NAME
-        value: "Hariharan"
+        value: "Rahul"
 
   - type: web
     name: utility-wise-frontend
