@@ -1,12 +1,13 @@
 import time
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Request
+from fastapi import BackgroundTasks, Depends, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
 from config import settings
 from database import Base, engine, get_db
+from gmail_service import send_enquiry_notification
 from models import Enquiry
 from schemas import EnquiryCreate, EnquiryOut
 
@@ -39,6 +40,7 @@ def health():
 def create_enquiry(
     payload: EnquiryCreate,
     request: Request,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ):
     # Honeypot: bots tend to fill every field, including ones hidden from real users.
@@ -62,6 +64,8 @@ def create_enquiry(
     db.add(enquiry)
     db.commit()
     db.refresh(enquiry)
+
+    background_tasks.add_task(send_enquiry_notification, enquiry)
 
     return enquiry
 

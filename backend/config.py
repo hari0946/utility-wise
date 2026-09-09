@@ -15,5 +15,14 @@ class Settings(BaseSettings):
     # Basic anti-spam: minimum seconds between submissions from the same IP
     rate_limit_seconds: int = 30
 
+    # Gmail API notification - sends from the account you authorize (see gmail_auth.py),
+    # to this address, whenever a form is submitted. Leave gmail_notify_to empty to disable.
+    # These come from a one-time local OAuth flow (gmail_auth.py) - no local files needed
+    # at runtime, so this works the same locally and on a cloud deploy.
+    gmail_client_id: str = ""
+    gmail_client_secret: str = ""
+    gmail_refresh_token: str = ""
+    gmail_notify_to: str = ""
+
 
 settings = Settings()
