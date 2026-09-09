@@ -23,6 +23,7 @@ class Settings(BaseSettings):
     gmail_client_secret: str = ""
     gmail_refresh_token: str = ""
     gmail_notify_to: str = ""
+    gmail_notify_name: str = ""
 
 
 settings = Settings()

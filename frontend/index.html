@@ -497,6 +497,18 @@
               tabindex="-1"
               class="absolute left-[-9999px] h-px w-px opacity-0"
             />
+            <label for="consent" class="flex items-start gap-2 text-[0.78rem] text-gray-700">
+              <input
+                id="consent"
+                name="consent"
+                type="checkbox"
+                required
+                class="mt-[0.15rem] h-4 w-4 flex-shrink-0 rounded border-line text-accent focus:ring-accent"
+              />
+              <span>
+                I agree to be contacted by BASE Automation using the details I've provided above.
+              </span>
+            </label>
             <button
               type="submit"
               id="enquiry-submit"
@@ -585,6 +597,11 @@
 
       if (!payload.name || !payload.email || !payload.company || !payload.message) {
         setStatus("error", "Please fill in all fields.");
+        return;
+      }
+
+      if (!document.getElementById("consent").checked) {
+        setStatus("error", "Please agree to be contacted before submitting.");
         return;
       }
 
