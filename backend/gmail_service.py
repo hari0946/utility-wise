@@ -1,6 +1,7 @@
 import base64
 import logging
 from email.message import EmailMessage
+from zoneinfo import ZoneInfo
 
 from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
@@ -13,6 +14,7 @@ from models import Enquiry
 logger = logging.getLogger("uvicorn.error")
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
+IST = ZoneInfo("Asia/Kolkata")
 
 
 def _load_credentials() -> Credentials | None:
@@ -46,6 +48,8 @@ def send_enquiry_notification(enquiry: Enquiry) -> None:
             )
             return
 
+        submitted_ist = enquiry.created_at.astimezone(IST).strftime("%d %b %Y, %I:%M %p IST")
+
         message = EmailMessage()
         message["To"] = settings.gmail_notify_to
         message["Subject"] = f"New UtilityWise enquiry from {enquiry.name}"
@@ -53,7 +57,7 @@ def send_enquiry_notification(enquiry: Enquiry) -> None:
             f"Name: {enquiry.name}\n"
             f"Email: {enquiry.email}\n"
             f"Company / Plant: {enquiry.company}\n"
-            f"Submitted: {enquiry.created_at}\n\n"
+            f"Submitted: {submitted_ist}\n\n"
             f"Message:\n{enquiry.message}\n"
         )
 
