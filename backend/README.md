@@ -1,6 +1,6 @@
-# Utility Wise Enquiry API
+# UtilityWise Enquiry API
 
-FastAPI backend for the "Interested in Utility Wise?" contact form. Submissions are stored in
+FastAPI backend for the "Interested in UtilityWise?" contact form. Submissions are stored in
 PostgreSQL - no other side effects.
 
 ## Endpoints

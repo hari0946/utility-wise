@@ -12,7 +12,7 @@ from schemas import EnquiryCreate, EnquiryOut
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Utility Wise Enquiry API", version="1.0.0")
+app = FastAPI(title="UtilityWise Enquiry API", version="1.0.0")
 
 origins = (
     ["*"]
